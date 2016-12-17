@@ -1,0 +1,19 @@
+﻿@model RestfulNews.Models.News
+@{
+    ViewBag.Title = "主页";
+}
+
+<h2>@ViewBag.Title。</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h4>@Html.Label("这是主页")</h4>
+    <div id="example"></div>
+    <script type="text/babel">
+        ReactDOM.render(
+        <h1>Hello, world!React!</h1>,
+        document.getElementById('example')
+        );
+    </script>
+    <hr />
+</div>

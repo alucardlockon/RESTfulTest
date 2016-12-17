@@ -10,3 +10,4 @@ function test() {
     var na = new newsA();
     alert(na.print());
 }
+//# sourceMappingURL=main.js.map

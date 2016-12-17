@@ -14,11 +14,12 @@ namespace RestfulNews.Models
 
         [Required]
         [StringLength(100, ErrorMessage = "{0} 必须至少包含 {2} 个字符。", MinimumLength = 6)]
-        [DataType(DataType.Password)]
+        [DataType(DataType.Text)]
         [Display(Name = "标题")]
         public string Title { get; set; }
 
-        [DataType(DataType.Password)]
+        [Required]
+        [DataType(DataType.Text)]
         [Display(Name = "内容")]
         [Compare("NewPassword", ErrorMessage = "请输入内容。")]
         public string Content { get; set; }

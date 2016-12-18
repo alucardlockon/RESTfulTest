@@ -20,7 +20,7 @@ namespace RestfulNews.Models
         public string Title { get; set; }
 
         [Required]
-        [DataType(DataType.Html)]
+        [DataType(DataType.MultilineText)]
         [Display(Name = "内容")]
         public string Content { get; set; }
 

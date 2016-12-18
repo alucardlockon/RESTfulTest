@@ -9,13 +9,16 @@ using System.Threading.Tasks;
 namespace RestfulNews.Commons.Tests
 {
     [TestClass()]
-    public class RssFeedHelperTests
+    public class HibernateHelperTests
     {
         [TestMethod()]
-        public void ReadRssTest()
+        public void TestTest()
         {
-            //string a=RssFeedHelper.ReadRss();
-            //Console.WriteLine(a);
+            //var cfg = new Configuration();
+            //cfg.Configure();
+            //cfg.AddAssembly(typeof(Product).Assembly);
+
+            //new SchemaExport(cfg).Execute(false, true, false, false);
         }
     }
 }

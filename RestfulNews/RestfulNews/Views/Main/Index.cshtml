@@ -8,12 +8,15 @@
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
     <h4>@Html.Label("这是主页")</h4>
-    <div id="example"></div>
+    @*<div id="example"></div>
     <script type="text/babel">
         ReactDOM.render(
         <h1>Hello, world!React!</h1>,
         document.getElementById('example')
         );
-    </script>
+    </script>*@
+    <div id="app">
+        <script src="~/Scripts/react/IndexRender.js"></script>
+    </div>
     <hr />
 </div>

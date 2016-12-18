@@ -1,0 +1,58 @@
+﻿@model RestfulNews.Models.News
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>详情</h2>
+
+<div>
+    <h4>新闻</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaseUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaseUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EditTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EditTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("返回列表", "Index")
+</p>

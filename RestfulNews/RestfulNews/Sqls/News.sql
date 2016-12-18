@@ -1,6 +1,6 @@
 ﻿
-drop table if EXISTS `NewTable`;
-CREATE TABLE `NewTable` (
+drop table if EXISTS `News`;
+CREATE TABLE `News` (
 `Id`  int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID' ,
 `Title`  varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '文章标题' ,
 `Content`  varchar(4000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '文章内容' ,

@@ -1,22 +1,57 @@
-﻿@model RestfulNews.Models.News
+﻿@model IEnumerable<RestfulNews.Models.News>
+
 @{
-    ViewBag.Title = "主页";
+    ViewBag.Title = "NewsList";
 }
 
-<h2>@ViewBag.Title。</h2>
+<h2>新闻列表</h2>
 
-<p class="text-success">@ViewBag.StatusMessage</p>
-<div>
-    <h4>@Html.Label("这是主页")</h4>
-    @*<div id="example"></div>
-    <script type="text/babel">
-        ReactDOM.render(
-        <h1>Hello, world!React!</h1>,
-        document.getElementById('example')
-        );
-    </script>*@
-    @*<div id="app">
-        <script src="~/Scripts/react/IndexRender.js"></script>
-    </div>*@
-    <hr />
-</div>
+<p>
+    @Html.ActionLink("创建", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaseUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EditTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaseUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EditTime)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("详情", "Details", new { id=item.Id }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

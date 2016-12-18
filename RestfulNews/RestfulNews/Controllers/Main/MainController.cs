@@ -1,5 +1,7 @@
-﻿using System;
+﻿using RestfulNews.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,8 +10,15 @@ namespace RestfulNews.Controllers.Main
 {
     public class MainController : Controller
     {
+        MainDbContext db = new MainDbContext();
         // GET: Main
         public ActionResult Index()
+        {
+            return View(db.Newses.ToList());
+        }
+
+        // GET: List
+        public ActionResult NewsList()
         {
             return View();
         }
@@ -17,7 +26,12 @@ namespace RestfulNews.Controllers.Main
         // GET: Main/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var news = db.Newses.Find(id);
+            if (news==null)
+            {
+                return HttpNotFound();
+            }
+            return View(news);
         }
 
         // GET: Main/Create
@@ -28,12 +42,17 @@ namespace RestfulNews.Controllers.Main
 
         // POST: Main/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(News news)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                if (ModelState.IsValid)
+                {
+                    news.CreateTime = DateTime.Now;
+                    news.EditTime = DateTime.Now;
+                    db.Newses.Add(news);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
             catch
@@ -45,20 +64,30 @@ namespace RestfulNews.Controllers.Main
         // GET: Main/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var news = db.Newses.Find(id);
+            if (news == null)
+            {
+                return HttpNotFound();
+            }
+            return View(news);
         }
 
         // POST: Main/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, News news)
         {
             try
             {
-                // TODO: Add update logic here
-
+                if (ModelState.IsValid)
+                {
+                    news.EditTime = DateTime.Now;
+                    db.Entry(news).State = EntityState.Modified;
+                    db.Entry(news).Property(m => m.CreateTime).IsModified = false;
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception e)
             {
                 return View();
             }
@@ -67,17 +96,25 @@ namespace RestfulNews.Controllers.Main
         // GET: Main/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var news = db.Newses.Find(id);
+            if (news == null)
+            {
+                return HttpNotFound();
+            }
+            return View(news);
         }
 
         // POST: Main/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, News news2)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                var news = db.Newses.Find(id);
+                if (news == null)
+                    return HttpNotFound();
+                db.Newses.Remove(news);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch

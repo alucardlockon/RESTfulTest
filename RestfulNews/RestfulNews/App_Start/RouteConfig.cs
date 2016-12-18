@@ -19,11 +19,11 @@ namespace RestfulNews
                 defaults: new { controller = "Main", action = "Index", id = UrlParameter.Optional }
             );
 
-            routes.MapRoute(
-                name: "MainRoute",
-                url: "mian/{action}/{id}",
-                defaults: new { controller = "Main", action = "Index", id = UrlParameter.Optional }
-            );
+            //routes.MapRoute(
+            //    name: "MainRoute",
+            //    url: "mian/{action}/{id}",
+            //    defaults: new { controller = "Main", action = "Index", id = UrlParameter.Optional }
+            //);
 
         }
     }

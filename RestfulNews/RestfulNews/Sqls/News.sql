@@ -1,0 +1,18 @@
+﻿
+drop table if EXISTS `NewTable`;
+CREATE TABLE `NewTable` (
+`Id`  int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID' ,
+`Title`  varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '文章标题' ,
+`Content`  varchar(4000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '文章内容' ,
+`BaseUrl`  varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '来源URL' ,
+`CreateTime`  datetime NULL DEFAULT NULL COMMENT '创建时间' ,
+`EditTime`  datetime NULL DEFAULT NULL COMMENT '修改时间' ,
+PRIMARY KEY (`Id`)
+)
+ENGINE=InnoDB
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci
+COMMENT='REST-新闻表'
+AUTO_INCREMENT=1
+ROW_FORMAT=COMPACT
+;
+

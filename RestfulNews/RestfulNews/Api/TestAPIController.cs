@@ -15,9 +15,9 @@ namespace RestfulNews.Api
     public class TestAPIController : ApiController
     {
         News[] newsArr= new News[] {
-                new News{ Id="1",Title="no1news",Content="这是第1条新闻测试",CreateTime=DateTime.Now,EditTime=DateTime.Now },
-                new News{ Id="2",Title="no2news",Content="这是第2条新闻测试",CreateTime=DateTime.Now,EditTime=DateTime.Now },
-                new News{ Id="3",Title="no3news",Content="这是第3条新闻测试",CreateTime=DateTime.Now,EditTime=DateTime.Now }
+                new News{ Id=1,Title="no1news",Content="这是第1条新闻测试",CreateTime=DateTime.Now,EditTime=DateTime.Now },
+                new News{ Id=2,Title="no2news",Content="这是第2条新闻测试",CreateTime=DateTime.Now,EditTime=DateTime.Now },
+                new News{ Id=3,Title="no3news",Content="这是第3条新闻测试",CreateTime=DateTime.Now,EditTime=DateTime.Now }
             };
         // GET api/<controller>
         public IEnumerable<News> Get()
@@ -26,7 +26,7 @@ namespace RestfulNews.Api
         }
 
         // GET api/<controller>/5
-        public IHttpActionResult Get(string id)
+        public IHttpActionResult Get(int id)
         {
             var news = newsArr.FirstOrDefault((n)=>n.Id == id);
             if (news == null)

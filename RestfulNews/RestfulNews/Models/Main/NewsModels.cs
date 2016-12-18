@@ -10,7 +10,7 @@ namespace RestfulNews.Models
     public class News
     {
         [Required]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "{0} 必须至少包含 {2} 个字符。", MinimumLength = 6)]

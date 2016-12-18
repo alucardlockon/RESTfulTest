@@ -5,40 +5,56 @@
 }
 
 <h2>新闻列表</h2>
+<p>
+    @using (Html.BeginForm("AddRss", "Main"))
+    {
+        @Html.AntiForgeryToken()
 
+        @Html.Label("RSS地址")
+        <input type="text" id="rssUrl" name="rssUrl" value="@ViewBag.rssUrl" class="form-control">
+        @*@Html.ActionLink("获取RSS", "GetRss")*@
+        <input type="submit" value="获取RSS" class="btn btn-primary" />
+    }
+</p>
 <p>
     @Html.ActionLink("创建", "Create")
+    
+
 </p>
 <table class="table">
     <tr>
-        <th>
+        <th style="width:20%;overflow:hidden">
             @Html.DisplayNameFor(model => model.Title)
         </th>
-        <th>
+        <th style="width:20%;overflow:hidden">
             @Html.DisplayNameFor(model => model.Content)
         </th>
-        <th>
+        <th style="width:20%;overflow:hidden">
             @Html.DisplayNameFor(model => model.BaseUrl)
         </th>
-        <th>
+        <th style="width:10%;overflow:hidden">
             @Html.DisplayNameFor(model => model.CreateTime)
         </th>
-        <th>
+        <th style="width:10%;overflow:hidden">
             @Html.DisplayNameFor(model => model.EditTime)
         </th>
-        <th></th>
+        <th style="width:20%;"></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
+    <tr style="height:20px">
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
+            <a href="~/Main/Details/@item.Id">@Html.DisplayFor(modelItem => item.Title)</a>
         </td>
-        <td>
+        <td >
             @Html.DisplayFor(modelItem => item.Content)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.BaseUrl)
+            @*@Html.DisplayFor(modelItem => item.BaseUrl)*@
+            @if (@item.BaseUrl!=null)
+            {
+                <a href="@item.BaseUrl" title="@item.BaseUrl">@item.BaseUrl.Substring(0,item.BaseUrl.Length > 30?30:item.BaseUrl.Length)</a>
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreateTime)

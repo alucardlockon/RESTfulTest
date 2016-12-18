@@ -1,4 +1,5 @@
-﻿using RestfulNews.Models;
+﻿using RestfulNews.Commons;
+using RestfulNews.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -14,6 +15,14 @@ namespace RestfulNews.Controllers.Main
         // GET: Main
         public ActionResult Index()
         {
+            if (Request.Cookies["rssUrl"] != null)
+            {
+                ViewBag.rssUrl = Request.Cookies["rssUrl"].Value;
+            }
+            foreach (News news in db.Newses)
+            {
+                news.Content = news.Content.Substring(0,news.Content.Length > 50 ?50:news.Content.Length)+ (news.Content.Length > 50? "...":"");
+            }
             return View(db.Newses.ToList());
         }
 
@@ -87,7 +96,7 @@ namespace RestfulNews.Controllers.Main
                 }
                 return RedirectToAction("Index");
             }
-            catch(Exception e)
+            catch
             {
                 return View();
             }
@@ -120,6 +129,26 @@ namespace RestfulNews.Controllers.Main
             catch
             {
                 return View();
+            }
+        }
+
+        [HttpPost]
+        public ActionResult AddRss(string rssUrl)
+        {
+            try
+            {
+                if (ModelState.IsValid && rssUrl != null)
+                {
+                    Response.Cookies["rssUrl"].Value = rssUrl;
+                    List<News> newsLIst=RssFeedHelper.ReadRssToNews(rssUrl,1);
+                    db.Newses.AddRange(newsLIst);
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return RedirectToAction("Index");
             }
         }
     }

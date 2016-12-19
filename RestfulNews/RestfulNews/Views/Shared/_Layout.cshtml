@@ -4,12 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
+    <title>@ViewBag.Title - RSS新闻</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <script src="@Url.Content("~/Scripts/react.js")"></script>
     <script src="@Url.Content("~/Scripts/react-dom.js")"></script>
     <script src="@Url.Content("~/Scripts/browser.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/share.js")"></script>
+    @Styles.Render("~/Content/css/flat-ui.css")
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -21,9 +23,11 @@
                     <span class="icon-bar"></span>
                 </button>
                 @*@Html.ActionLink("应用程序名称", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li><img src="@Url.Content("~/Content/img/icons/png/Clipboard.png")" style="width:30px;height:30px;margin-top:10px"></li>
                     <li>@Html.ActionLink("主页", "NewsList", "Main")</li>
                     <li>@Html.ActionLink("新闻", "Index", "Main")</li>
                     <li>@Html.ActionLink("留档", "List", "Main")</li>

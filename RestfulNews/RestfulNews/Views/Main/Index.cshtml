@@ -8,12 +8,14 @@
 <p>
     @using (Html.BeginForm("AddRss", "Main"))
     {
-        @Html.AntiForgeryToken()
+        <div style="display:inline">
+            @Html.AntiForgeryToken()
 
-        @Html.Label("RSS地址")
-        <input type="text" id="rssUrl" name="rssUrl" value="@ViewBag.rssUrl" class="form-control">
-        @*@Html.ActionLink("获取RSS", "GetRss")*@
-        <input type="submit" value="获取RSS" class="btn btn-primary" />
+            @Html.Label("RSS地址")
+            <input type="text" id="rssUrl" name="rssUrl" value="@ViewBag.rssUrl" class="form-control">
+            @*@Html.ActionLink("获取RSS", "GetRss")*@
+            <input type="submit" value="获取RSS" class="btn btn-primary" />
+        </div>
     }
 </p>
 <p>

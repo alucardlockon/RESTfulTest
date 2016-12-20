@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<spring>
+<context>
+  <!--容器配置-->
+  <resource uri="config://spring/objects"/>
+</context>
+<objects xmlns="http://www.springframework.net">
+  <!--这里放容器里面的所有节点-->
+  <description>An  example that demonstrates simple IoC features.</description>
+  <!--name 必须要唯一的，type=类的全名称，所在的程序集-->
+  <object name="UserInfoDal" type="Spring.Net.EFUserInfoDal, Spring.Net">
+    <property name="Name" value="张三"/>
+    <!--ref指向下面的属性注入-->
+    <property name="UserInfo" ref="UserInfo"/>
+  </object>
+
+  <!--属性注入-->
+  <object name="UserInfo" type="Spring.Net.UserInfo, Spring.Net">
+    <property name="Name" value="李四"/>
+    <property name="Age" value="15"/>
+  </object>
+</objects>
+</spring>

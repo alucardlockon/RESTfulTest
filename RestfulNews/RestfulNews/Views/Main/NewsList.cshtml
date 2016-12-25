@@ -19,4 +19,52 @@
         <script src="~/Scripts/react/IndexRender.js"></script>
     </div>*@
     <hr />
+    
+
 </div>
+<div id="time" v-bind:title="time">
+    <ol>
+        <li v-for="todo in todos">{{todo.text}}</li>
+        <todo-item v-for="todo in todos" v-bind:todo="todo"></todo-item>
+    </ol>
+    <button type="button" v-on:click="getMessage">Click ME!</button>
+</div>
+<div id="v2" >
+    <ol>
+        
+    </ol>
+</div>
+<style type="text/css">
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity .5s
+    }
+    .fade-enter, .fade-leave-active {
+      opacity: 0
+    }
+</style>
+<script type="text/javascript"> 
+    //组件测试
+    Vue.component('todo-item', {
+        props: ['todo'],
+        template: '<li>{{ todo.text }}</li>'
+    });
+    var v1=new Vue({
+        el:'#time',
+        data:{
+            time: new Date(),
+            todos: [
+              { text: 'Learn JavaScript' },
+              { text: 'Learn Vue' },
+              { text: 'Build something awesome' }
+            ]
+        },
+        methods: {
+            getMessage: function () {
+                v1.todos.push({text:'New Item'});
+            }
+        }
+    });
+    var v2 = new Vue({
+        el: '#v2'
+    });
+</script>

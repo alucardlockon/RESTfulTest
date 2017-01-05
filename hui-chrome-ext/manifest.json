@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+
+  "name": "hui-chrome-ext",
+  "description": "This extension is just my test",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.jpg",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "contextMenus"
+  ],
+  "background": {
+    "scripts": ["app.js"]
+  }
+}

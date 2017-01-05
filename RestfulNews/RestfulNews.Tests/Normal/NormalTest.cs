@@ -10,17 +10,29 @@ namespace RestfulNews.Tests.normal
         [TestMethod]
         public void TestDateTime()
         {
-            string rqStr = "1212";
-            string yxq_val = "yym".Replace("m", "M");
+            string rqStr = "16";
+            string yxq_val = "yy".Replace("m", "M");
             DateTime datetime;
-            //检测日期格式是否正确
-            if(DateTime.TryParseExact(rqStr,yxq_val, CultureInfo.InvariantCulture, DateTimeStyles.None,out datetime))
-            //if (DateTime.TryParse(rqStr, out datetime))
-            //if (DateTime.TryParse(rqStr, info, DateTimeStyles.None, out datetime))
+            //检测日期格式是否正确,根据可能的格式继续添加
+            switch (yxq_val)
             {
-            }else
-            {
-                Assert.Fail();
+                case "yyddd":
+                    
+                    break;
+                case "dddyy":
+
+                    break;
+                default:
+                    if (DateTime.TryParseExact(rqStr, yxq_val, CultureInfo.InvariantCulture, DateTimeStyles.None, out datetime))
+                    //if (DateTime.TryParse(rqStr, out datetime))
+                    //if (DateTime.TryParse(rqStr, info, DateTimeStyles.None, out datetime))
+                    {
+                    }
+                    else
+                    {
+                        Assert.Fail();
+                    }
+                    break;
             }
         }
     }

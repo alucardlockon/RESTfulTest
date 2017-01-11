@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+    <!-- <img src="./assets/logo.png"> -->
+    <v-list message="abc"></v-list>
   </div>
 </template>
 
 <script>
 import Hello from './components/Hello'
+import VList from './components/VList'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    Hello, VList
   }
 }
 </script>

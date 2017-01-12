@@ -1,7 +1,7 @@
 <template>
   <div class="v-list">
     <ul>
-      <li>{{message}}</li>
+      <li v-for="name in names">{{name.name}}</li>
     </ul>
   </div>
 </template>
@@ -11,7 +11,15 @@ export default {
   props: ['message'],
   data () {
     return {
-      item: '111'
+      item: '111',
+      names: [
+        { name: 'ps4' },
+        { name: 'ps3' },
+        { name: 'wii' },
+        { name: 'wiiu' },
+        { name: 'xbox360' },
+        { name: 'xboxOne' }
+      ]
     }
   }
 }

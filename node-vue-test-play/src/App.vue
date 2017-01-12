@@ -1,18 +1,21 @@
 <template>
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
-    <v-list message="abc"></v-list>
+    <!-- <v-list message="abc"></v-list> -->
+    <hui-table></hui-table>
+    <button class="btn btn-primary">Save</button>
   </div>
 </template>
 
 <script>
 import Hello from './components/Hello'
 import VList from './components/VList'
+import HuiTable from './components/HuiTable'
 
 export default {
   name: 'app',
   components: {
-    Hello, VList
+    Hello, VList, HuiTable
   }
 }
 </script>

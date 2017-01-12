@@ -1,0 +1,14 @@
+[
+  {
+      "name": "ps4",
+  		"maker": "sony"
+  },
+  {
+      "name": "wiiu",
+  		"maker": "nintendo"
+  },
+  {
+      "name": "xboxOne",
+  		"maker": "microsoft"
+  }
+]

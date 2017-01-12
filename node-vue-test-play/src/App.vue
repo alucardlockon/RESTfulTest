@@ -3,7 +3,10 @@
     <!-- <img src="./assets/logo.png"> -->
     <!-- <v-list message="abc"></v-list> -->
     <hui-table 
-      dataurl="https://raw.githubusercontent.com/alucardlockon/RESTfulTest/master/node-vue-test-play/static/json/tabledata.json">
+      dataurl="https://raw.githubusercontent.com/alucardlockon/RESTfulTest/master/node-vue-test-play/static/json/tabledata.json"
+      page-size="10"
+      show-line-number="true"
+      >
     </hui-table>
     <!-- <button class="btn btn-primary">Save</button> -->
   </div>

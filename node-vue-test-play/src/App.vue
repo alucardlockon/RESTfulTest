@@ -2,8 +2,9 @@
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
     <!-- <v-list message="abc"></v-list> -->
+    <!-- dataurl="https://raw.githubusercontent.com/alucardlockon/RESTfulTest/master/node-vue-test-play/static/json/tabledata.json" -->
     <hui-table 
-      dataurl="https://raw.githubusercontent.com/alucardlockon/RESTfulTest/master/node-vue-test-play/static/json/tabledata.json"
+      dataurl="static/json/tabledata.json"
       page-size="10"
       show-line-number="true"
       >

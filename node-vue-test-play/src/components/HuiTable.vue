@@ -69,8 +69,9 @@ export default {
     this.v_pageSize = parseInt(this.pageSize)
     this.v_pageCount = parseInt(this.pageCount)
     this.$http.get(url, {}).then((response) => {
-      let data = JSON.parse(response.data)
-      // console.log(data)
+      // console.log(response.data)
+      // let data = JSON.parse(response.data)
+      let data = response.data
       this.datas = data.datas
       this.maxCount = data.datas.length
       this.title = data.title

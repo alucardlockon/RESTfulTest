@@ -5,6 +5,7 @@
       </li>
     </ol> -->
     <table class="table table-striped">
+      <caption><h2>{{title}}</h2></caption>
       <thead>
         <tr>
           <th v-for="head in theads"  style="text-align:center">{{head}}</th>
@@ -30,21 +31,24 @@ export default {
   props: ['dataurl'],
   data () {
     return {
+      title: '',
       datas: [
-        { name: 'ps4', maker: 'sony', gg: 'ccc' },
-        { name: 'ps3', maker: 'sony' },
-        { name: 'wii', maker: 'nintendo' },
-        { name: 'wiiu', maker: 'nintendo' },
-        { name: 'xbox360', maker: 'microsoft' },
-        { name: 'xboxOne', maker: 'microsoft' }
+        // { name: 'ps4', maker: 'sony', gg: 'ccc' },
+        // { name: 'ps3', maker: 'sony' },
+        // { name: 'wii', maker: 'nintendo' },
+        // { name: 'wiiu', maker: 'nintendo' },
+        // { name: 'xbox360', maker: 'microsoft' },
+        // { name: 'xboxOne', maker: 'microsoft' }
       ]
     }
   },
   created: function () {
     let url = 'https://raw.githubusercontent.com/alucardlockon/RESTfulTest/master/node-vue-test-play/static/json/tabledata.json'
     this.$http.get(url, {}).then((response) => {
-      console.log(response.data)
-      this.datas = JSON.parse(response.data).datas
+      let data = JSON.parse(response.data)
+      console.log(data)
+      this.datas = data.datas
+      this.title = data.title
     })
     // this.$http.get('https://raw.githubusercontent.com/alucardlockon/RESTfulTest/master/node-vue-test-play/static/json/tabledata.json')
   },

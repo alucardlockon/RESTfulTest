@@ -2,8 +2,10 @@
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
     <!-- <v-list message="abc"></v-list> -->
-    <hui-table></hui-table>
-    <button class="btn btn-primary">Save</button>
+    <hui-table 
+      dataurl="https://raw.githubusercontent.com/alucardlockon/RESTfulTest/master/node-vue-test-play/static/json/tabledata.json">
+    </hui-table>
+    <!-- <button class="btn btn-primary">Save</button> -->
   </div>
 </template>
 
@@ -11,9 +13,7 @@
 import Hello from './components/Hello'
 import VList from './components/VList'
 import HuiTable from './components/HuiTable'
-import VueRouter from 'vue-router'
 
-Vue.use(VueRouter)
 export default {
   name: 'app',
   components: {

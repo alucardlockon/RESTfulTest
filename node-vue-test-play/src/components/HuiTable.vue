@@ -37,9 +37,10 @@ export default {
       ]
     }
   },
-  created (){
-    this.$http.Get();
+  created: function (){
+      this.$http.Get(https://raw.githubusercontent.com/alucardlockon/RESTfulTest/master/node-vue-test-play/static/json/tabledata.json);
   }
+  
 }
 </script>
 <style>

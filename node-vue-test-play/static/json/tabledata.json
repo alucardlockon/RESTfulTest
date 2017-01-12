@@ -1,14 +1,23 @@
-[
-  {
-      "name": "ps4",
-  		"maker": "sony"
-  },
-  {
-      "name": "wiiu",
-  		"maker": "nintendo"
-  },
-  {
-      "name": "xboxOne",
-  		"maker": "microsoft"
-  }
-]
+{
+  "table title": "consloes",
+  "datas": [
+    {
+        "name": "ps4",
+    		"maker": "sony",
+        "sales": "10000",
+        "price": "399.00"
+    },
+    {
+        "name": "wiiu",
+    		"maker": "nintendo",
+        "sales": "2000",
+        "price": "199.00"
+    },
+    {
+        "name": "xboxOne",
+    		"maker": "microsoft",
+        "sales": "1000",
+        "price": "299.00"
+    }
+  ]
+}

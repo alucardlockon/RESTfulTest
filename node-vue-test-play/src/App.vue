@@ -11,7 +11,9 @@
 import Hello from './components/Hello'
 import VList from './components/VList'
 import HuiTable from './components/HuiTable'
+import VueRouter from 'vue-router'
 
+Vue.use(VueRouter)
 export default {
   name: 'app',
   components: {

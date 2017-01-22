@@ -1,0 +1,15 @@
+{
+  "name": "node-typescript-test-play",
+  "version": "0.1.0",
+  "description": "node project for typescipt test",
+  "main": "app.js",
+  "dependencies": {
+    "less": "^2.7.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "app-test.js"
+  },
+  "author": "alucardlockon",
+  "license": "MIT"
+}

@@ -12,10 +12,15 @@ for (var i = 0; i < contexts.length; i++) {
 }
 
 function copylink() {
-    let url = ''
-    alert(chrome.tabs.length)
-    chrome.tabs.getCurrent(function(tab) {
-        url = tab.url
-    })
-    alert(url)
+    chrome.tabs.getSelected(null, function(tab) {
+        let pageName = ''
+        pageName += tab.url.substring(tab.url.lastIndexOf('/') + 1, tab.url.length) + '\n'
+        let iframes = document.getElementsByTagName('iframe')
+        Array.from(iframes).forEach((iframe) => {
+            alert(iframe)
+            pageName += iframe.getAttribute('src')  + '\n'
+        })
+        alert(pageName)
+    });
 }
+

@@ -14,10 +14,11 @@ namespace RestfulNews.Api
     /// RESTful API/WEB API 测试类
     /// 2016年12月17日12:32:38
     /// </summary>
+    [RoutePrefix("api/news")]
     public class TestAPIController : ApiController
     {
-        MainDbContext db = new MainDbContext();
-        News[] newsArr= new News[] {
+        public MainDbContext db = new MainDbContext();
+        public News[] newsArr= new News[] {
                 new News{ Id=1,Title="no1news",Content="这是第1条新闻测试",CreateTime=DateTime.Now,EditTime=DateTime.Now },
                 new News{ Id=3,Title="no3news",Content="这是第3条新闻测试",CreateTime=DateTime.Now,EditTime=DateTime.Now },
                 new News{ Id=2,Title="no2news",Content="这是第2条新闻测试",CreateTime=DateTime.Now,EditTime=DateTime.Now }

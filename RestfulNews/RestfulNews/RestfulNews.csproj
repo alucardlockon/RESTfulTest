@@ -432,6 +432,7 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Sqls\db_restfultest.sql" />
     <Content Include="Sqls\News.sql" />
+    <Content Include="Views\Main\List.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -29,7 +29,24 @@ namespace RestfulNews.Controllers.Main
         // GET: List
         public ActionResult NewsList()
         {
-            return View();
+            foreach (News news in db.Newses)
+            {
+                news.Content = news.Content.Substring(0,news.Content.Length > 300 ?300:news.Content.Length)+ (news.Content.Length > 300? "...":"");
+            }
+            return View(db.Newses.ToList());
+        }
+        
+        public ActionResult List()
+        {
+            if (Request.Cookies["rssUrl"] != null)
+            {
+                ViewBag.rssUrl = Request.Cookies["rssUrl"].Value;
+            }
+            foreach (News news in db.Newses)
+            {
+                news.Content = news.Content.Substring(0,news.Content.Length > 50 ?50:news.Content.Length)+ (news.Content.Length > 50? "...":"");
+            }
+            return View(db.Newses.ToList());
         }
 
         // GET: Main/Details/5

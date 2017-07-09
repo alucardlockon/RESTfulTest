@@ -1,28 +1,40 @@
-﻿@model RestfulNews.Models.News
+﻿@model IEnumerable<RestfulNews.Models.News>
 @{
     ViewBag.Title = "主页";
 }
 
-<h2>@ViewBag.Title。</h2>
+<h2>@ViewBag.Title</h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
-<div>
+
+@foreach (var item in Model.OrderByDescending(model=>model.Id).Take(5) ) {
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">@Html.DisplayFor(model=>item.Title)</h3>
+        </div>
+        <div class="panel-body">
+            @Html.DisplayFor(model=>item.Content)
+        </div>
+    </div>
+}
+
+@*<div>
     <h4>@Html.Label("这是新闻主页")</h4>
-    @*<div id="example"></div>
+    $1$<div id="example"></div>
     <script type="text/babel">
         ReactDOM.render(
         <h1>Hello, world!React!</h1>,
         document.getElementById('example')
         );
-    </script>*@
-    @*<div id="app">
+    </script>#1#
+    $1$<div id="app">
         <script src="~/Scripts/react/IndexRender.js"></script>
-    </div>*@
+    </div>#1#
     <hr />
     
 
-</div>
-<div id="time" v-bind:title="time">
+</div>*@
+@*<div id="time" v-bind:title="time">
     <ol>
         <li v-for="todo in todos">{{todo.text}}</li>
         <todo-item v-for="todo in todos" v-bind:todo="todo"></todo-item>
@@ -33,15 +45,17 @@
     <ol>
         
     </ol>
-</div>
+</div>*@
+@*
 <style type="text/css">
     .fade-enter-active, .fade-leave-active {
-      transition: opacity .5s
+        transition: opacity .5s
     }
     .fade-enter, .fade-leave-active {
-      opacity: 0
+        opacity: 0
     }
-</style>
+</style>*@
+@*
 <script type="text/javascript"> 
     //组件测试
     Vue.component('todo-item', {
@@ -67,4 +81,4 @@
     var v2 = new Vue({
         el: '#v2'
     });
-</script>
+</script>*@
